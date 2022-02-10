@@ -130,15 +130,15 @@ function filterData(brand, os,product)
 		var previousOS=product[i].os;
 		var previousBrand=product[i].brand;
 
-		if(brand == previousBrand && (os == "Select" || os == 0))
+		if(brand == previousBrand && (os == "All" || os == 0))
 		{
 			filterArray.push(product[i]);
 		}
-		else if((brand == "Select" || brand == 0) && os == previousOS)
+		else if((brand == "All" || brand == 0) && os == previousOS)
 		{
 			filterArray.push(product[i]);
 		}	
-		else if(brand == "Select" && os == "Select")
+		else if(brand == "All" && os == "All")
 		{
 			display(product);
 			return;
@@ -165,16 +165,16 @@ function filterData(brand, os,product)
 //function to insert the select option on our page
 function selectAddition()
 {
-	$("#tableData").before(`<select id="brand" name="brand" placeholder="Brand">
-	<option>Select</option>
+	$("#tableData").before(`<label>Brand</label><select id="brand" name="brand" placeholder="Brand">
+	<option>All</option>
 	<option>Motorola</option>
 	<option>Samsung</option>
 	<option>ASUS</option>
 	<option>Apple</option>
 	<option>Microsoft</option>
 	</select>
-	<select id="os" name="os" value="Select" placeholder="Operating System">
-	<option>Select</option>
+	<label>Operating System</label><select id="os" name="os" value="Select" placeholder="Operating System">
+	<option>All</option>
 	<option>iOS</option>
 	<option>Android</option>
 	<option>Windows</option>
